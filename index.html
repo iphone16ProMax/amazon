@@ -413,33 +413,7 @@ function claimGift() {
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  
-<div class="container desktop-warning">
-    <div class="icon">🖥️❌📱</div>
-    <h1>¡Advertencia!</h1>
-    <p>Esta web solo es para dispositivos móviles.</p>
-    <p>Por favor, accede desde tu teléfono o tablet.</p>
-  </div>
 
-
-
-<script>
-    function isMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-
-    if (!isMobile()) {
-      document.querySelector('.desktop-warning').style.display = 'block';
-      document.querySelector('.mobile-content').style.display = 'none';
-      // Prevenir la interacción con la página
-      document.body.style.pointerEvents = 'none';
-      document.querySelector('.desktop-warning').style.pointerEvents = 'auto';
-    } else {
-      document.querySelector('.desktop-warning').style.display = 'none';
-      document.querySelector('.mobile-content').style.display = 'block';
-    }
-  </script>
-  
 
   
 </body></html>
