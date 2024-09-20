@@ -9,6 +9,15 @@
             alert("No puedes usar el clic derecho en esta página.");
         });
 
+   // Función para bloquear Ctrl+S o Cmd+S
+        document.addEventListener("keydown", function(event) {
+            // Bloquear Ctrl+S (Windows) o Cmd+S (macOS)
+            if ((event.ctrlKey || event.metaKey) && event.key === "s") {
+                event.preventDefault();
+                alert("No puedes guardar esta página.");
+            }
+        });
+
         // Deshabilitar teclas clave como F12, Ctrl+Shift+I, Ctrl+U
         document.addEventListener("keydown", function(event) {
             // Deshabilitar F12
