@@ -360,13 +360,13 @@ button:active {
   
   <div id="share-section">
     <h3>¡Último paso para ganar!</h3>
-    <p>Comparte este mensaje con 10 amigos o grupos en WhatsApp para duplicar tus posibilidades de ganar.</p>
+    <p>Comparte este mensaje con 5 amigos o grupos en WhatsApp para duplicar tus posibilidades de ganar.</p>
     <div id="share-counter">
       <div class="share-progress">
         <svg class="share-progress-ring" width="80" height="80">
           <circle stroke="#007AFF" stroke-width="8" fill="transparent" r="36" cx="40" cy="40"/>
         </svg>
-        <div class="share-count">0/10</div>
+        <div class="share-count">0/5</div>
       </div>
     </div>
     <div class="button-container">
@@ -441,12 +441,12 @@ function updateShareCounter() {
   const circle = document.querySelector('.share-progress-ring circle');
   const radius = circle.r.baseVal.value;
   const circumference = radius * 2 * Math.PI;
-  const offset = circumference - (shareCount / 10) * circumference;
+  const offset = circumference - (shareCount / 5) * circumference;
   circle.style.strokeDashoffset = offset;
   
-  document.querySelector('.share-count').textContent = `${shareCount}/10`;
+  document.querySelector('.share-count').textContent = `${shareCount}/5`;
   
-  if (shareCount >= 10) {
+  if (shareCount >= 5) {
     showGiftSection();
   }
 }
